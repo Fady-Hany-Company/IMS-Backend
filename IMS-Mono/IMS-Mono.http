@@ -1,0 +1,6 @@
+@IMS_Mono_HostAddress = http://localhost:5207
+
+GET {{IMS_Mono_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
