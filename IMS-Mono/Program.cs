@@ -41,6 +41,7 @@ if (app.Environment.IsDevelopment())
         .ExcludeFromDescription();
 }
 
+app.UseMiddleware<ResponseWrapperMiddleware>();
 app.UseMiddleware<RequestLoggingMiddleware>();
 
 app.UseHttpsRedirection();

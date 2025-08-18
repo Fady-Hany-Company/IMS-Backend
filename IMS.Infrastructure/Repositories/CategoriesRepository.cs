@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Dapper;
 using IMS.Application.DTOs.Categories.CreateCategory;
+using IMS.Application.DTOs.Categories.GetCategories;
 using IMS.Application.Interfaces;
 using IMS.Domain.Entities;
 using IMS.Infrastructure.Data;
@@ -47,6 +48,26 @@ namespace IMS.Infrastructure.Repositories
             Logger.LogInformation("[Repo] Category created successfully with ID {CategoryId}", categoryId);
 
             return categoryId;
+        }
+
+        public async Task<List<GetCategoriesResponseDto>> GetCategoriesAsync()
+        {
+            Logger.LogInformation("[Repo] Get all categories");
+
+            const string storedProcedureName = "[ims].[usp_categories_get_all]";
+
+            var conn = GetConnection(out var owns);
+
+            var categories = await conn.QueryAsync<GetCategoriesResponseDto>(
+                 storedProcedureName,
+                 commandType: CommandType.StoredProcedure,
+                 transaction: Uow.Transaction
+             );
+
+            
+            Logger.LogInformation("[Repo] Get all categories successfully");
+
+            return categories.ToList();
         }
     }
 }

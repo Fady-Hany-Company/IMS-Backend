@@ -2,6 +2,7 @@
 using IMS.Application.Features.Logging.InsertLog;
 using IMS.Application.Features.Logging.UpdateLog;
 using MediatR;
+using IMS_Mono.Common;
 
 namespace IMS_Mono.Middlewares
 {
@@ -17,7 +18,7 @@ namespace IMS_Mono.Middlewares
         public async Task InvokeAsync(HttpContext context, RequestDelegate next)
         {
             // Skip logging for scalar or irrelevant paths
-            if (IsScalarOrExcludedRequest(context))
+            if (Helper.IsScalarOrExcludedRequest(context))
             {
                 await next(context);
                 return;
@@ -84,17 +85,6 @@ namespace IMS_Mono.Middlewares
                 ;
             }
         }
-        private static bool IsScalarOrExcludedRequest(HttpContext context)
-        {
-            var path = context.Request.Path.Value?.ToLowerInvariant();
-
-            return string.IsNullOrEmpty(path)
-                   || path == "/"
-                   || path.StartsWith("/swagger")
-                   || path.StartsWith("/favicon.ico")
-                   || path.StartsWith("/health")
-                   || path.StartsWith("/openapi/v1.json")
-                   || path.Contains("/scalar");
-        }
+        
     }
 }

@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IMS.Domain.Entities
+namespace IMS.Application.DTOs.Categories.GetCategories
 {
-    public class Categories
+    public class GetCategoriesResponseDto
     {
-        [Key]
         public required int CategoryId { get; set; }
         public required string CategoryName { get; set; }
         public string? CategoryDesc { get; set; }

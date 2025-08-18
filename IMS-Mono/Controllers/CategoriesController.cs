@@ -1,5 +1,6 @@
 ﻿using IMS.Application.DTOs.Categories.CreateCategory;
 using IMS.Application.Features.Categories.CreateCategory;
+using IMS.Application.Features.Categories.GetCategories;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -22,7 +23,22 @@ namespace IMS_Mono.Controllers
                 _logger.LogInformation($"[Controller] Creating category with name: {requestDto.CategoryName}");
                 var categoryId = await Mediator.Send(new CreateCategoryCommand(requestDto));
 
-                return Ok(new { Message = "[Controller] Category created successfully", CategoryId = categoryId });
+                return Ok(new { CategoryId = categoryId });
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetCategories()
+        {
+            try
+            {
+                _logger.LogInformation($"[Controller] Get Categories");
+                var categories = await Mediator.Send(new GetCategoriesQuery());
+
+                return Ok(categories);
             }
             catch (Exception ex)
             {
