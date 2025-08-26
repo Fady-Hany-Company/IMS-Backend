@@ -19,6 +19,10 @@ namespace IMS_Mono.Extensions
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<ILogRepository, LogRepository>();
             services.AddScoped<ICategoriesRepository, CategoriesRepository>();
+            services.AddScoped<IPublishersRepository, PublishersRepository>();
+            services.AddScoped<IAuthorsRepository, AuthorsRepository>();
+            services.AddScoped<IBooksRepository, BooksRepository>();
+            services.AddScoped<IGenresRepository, GenresRepository>();
             services.AddMediatR(cfg =>
             {
                 cfg.RegisterServicesFromAssembly(IMS.Application.Common.AssemblyReference.Assembly);

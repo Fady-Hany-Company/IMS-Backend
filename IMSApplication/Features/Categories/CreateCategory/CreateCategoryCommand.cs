@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using IMS.Application.DTOs.Categories.CreateCategory;
+using IMS.Application.DTOs.CategoriesDTO.CreateCategory;
 using MediatR;
 
 namespace IMS.Application.Features.Categories.CreateCategory

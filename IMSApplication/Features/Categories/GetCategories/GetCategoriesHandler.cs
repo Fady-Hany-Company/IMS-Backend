@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
-using IMS.Application.DTOs.Categories.GetCategories;
+using IMS.Application.DTOs.CategoriesDTO.GetCategories;
 using IMS.Application.Interfaces;
 using MediatR;
 

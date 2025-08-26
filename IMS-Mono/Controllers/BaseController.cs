@@ -4,7 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace IMS_Mono.Controllers
 {
-
+    [Route("api/[controller]")]
+    [ApiController]
     public abstract class BaseController : ControllerBase
     {
         protected readonly ILogger<BaseController> _logger;

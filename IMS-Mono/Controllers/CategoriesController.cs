@@ -1,4 +1,4 @@
-﻿using IMS.Application.DTOs.Categories.CreateCategory;
+﻿using IMS.Application.DTOs.CategoriesDTO.CreateCategory;
 using IMS.Application.Features.Categories.CreateCategory;
 using IMS.Application.Features.Categories.GetCategories;
 using MediatR;
@@ -15,22 +15,7 @@ namespace IMS_Mono.Controllers
         {
         }
 
-        [HttpPost]
-        public async Task<IActionResult> CreateCategory([FromBody] CreateCategoryRequestDto requestDto)
-        {
-            try
-            {
-                _logger.LogInformation($"[Controller] Creating category with name: {requestDto.CategoryName}");
-                var categoryId = await Mediator.Send(new CreateCategoryCommand(requestDto));
-
-                return Ok(new { CategoryId = categoryId });
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-        }
-        [HttpGet]
+        [HttpGet("")]
         public async Task<IActionResult> GetCategories()
         {
             try
@@ -39,6 +24,22 @@ namespace IMS_Mono.Controllers
                 var categories = await Mediator.Send(new GetCategoriesQuery());
 
                 return Ok(categories);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        [HttpPost("")]
+        public async Task<IActionResult> CreateCategory([FromBody] CreateCategoryRequestDto requestDto)
+        {
+            try
+            {
+                _logger.LogInformation($"[Controller] Creating category with name: {requestDto.CategoryName}");
+                var categoryId = await Mediator.Send(new CreateCategoryCommand(requestDto));
+
+                return Ok(new { CategoryId = categoryId });
             }
             catch (Exception ex)
             {

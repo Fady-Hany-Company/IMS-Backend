@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
-using IMS.Application.DTOs.Categories.CreateCategory;
-using IMS.Application.DTOs.Categories.GetCategories;
+using IMS.Application.DTOs.CategoriesDTO.CreateCategory;
+using IMS.Application.DTOs.CategoriesDTO.GetCategories;
 using IMS.Domain.Entities;
 
 namespace IMS.Application.Common.Mappings

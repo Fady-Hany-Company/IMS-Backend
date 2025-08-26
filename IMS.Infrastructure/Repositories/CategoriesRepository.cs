@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Dapper;
 using IMS.Application.DTOs.Categories.CreateCategory;
-using IMS.Application.DTOs.Categories.GetCategories;
+using IMS.Application.DTOs.CategoriesDTO.GetCategories;
 using IMS.Application.Interfaces;
 using IMS.Domain.Entities;
 using IMS.Infrastructure.Data;

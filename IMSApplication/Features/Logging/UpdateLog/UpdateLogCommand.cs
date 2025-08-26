@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using IMS.Application.DTOs.Logging.UpdateLog;
+using IMS.Application.DTOs.LoggingDTO.UpdateLog;
 using MediatR;
 
 namespace IMS.Application.Features.Logging.UpdateLog

@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IMS.Application.DTOs.Categories.CreateCategory
+namespace IMS.Application.DTOs.CategoriesDTO.GetCategories
 {
-    public class CreateCategoryRequestDto
+    public class GetCategoriesResponseDto
     {
+        public required int CategoryId { get; set; }
         public required string CategoryName { get; set; }
         public string? CategoryDesc { get; set; }
+        public required DateTime CreatedAt { get; set; }
     }
 }

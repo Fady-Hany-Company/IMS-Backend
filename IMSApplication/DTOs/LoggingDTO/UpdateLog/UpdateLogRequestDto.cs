@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IMS.Application.DTOs.Logging.UpdateLog
+namespace IMS.Application.DTOs.LoggingDTO.UpdateLog
 {
     public class UpdateLogRequestDto
     {
