@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IMS.Application.DTOs.BooksDTO.CreateBook
 {
-    public class CreateBookRequestDto
+    public class AddBookRequestDto
     {
         public required string Name { get; set; }
         public required int Pages { get; set; }
@@ -19,7 +19,5 @@ namespace IMS.Application.DTOs.BooksDTO.CreateBook
         public required decimal Price { get; set; }
         public string? CoverImage { get; set; }
         public string? Description { get; set; }
-        public required DateTime CreatedAt { get; set; } = DateTime.Today;
-        public required string CreatedUsername { get; set; }
     }
 }

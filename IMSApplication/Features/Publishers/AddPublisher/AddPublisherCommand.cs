@@ -8,5 +8,5 @@ using System.Threading.Tasks;
 
 namespace IMS.Application.Features.Publishers.CreatePublisher
 {
-    public record CreatePublisherCommand(CreatePublisherRequestDto CreatePublisher):IRequest<int>;
+    public record AddPublisherCommand(AddPublisherRequestDto AddPublisher):IRequest<int>;
 }

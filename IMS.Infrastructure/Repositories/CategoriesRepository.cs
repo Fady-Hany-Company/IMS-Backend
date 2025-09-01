@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dapper;
-using IMS.Application.DTOs.Categories.CreateCategory;
 using IMS.Application.DTOs.CategoriesDTO.GetCategories;
 using IMS.Application.Interfaces;
 using IMS.Domain.Entities;
@@ -21,7 +20,7 @@ namespace IMS.Infrastructure.Repositories
             ILogger<BaseRepository> logger)
             : base(factory, uow, logger) { }
 
-        public async Task<int> CreateAsync(Categories category)
+        public async Task<int> AddCategoryAsync(Categories category)
         {
             Logger.LogInformation("[Repo] Creating new category {CategoryName}", category.CategoryName);
 

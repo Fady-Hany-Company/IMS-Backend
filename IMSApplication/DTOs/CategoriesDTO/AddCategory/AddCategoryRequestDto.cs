@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IMS.Application.DTOs.CategoriesDTO.CreateCategory
 {
-    public class CreateCategoryRequestDto
+    public class AddCategoryRequestDto
     {
         public required string CategoryName { get; set; }
         public string? CategoryDesc { get; set; }

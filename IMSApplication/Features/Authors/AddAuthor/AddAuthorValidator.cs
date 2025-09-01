@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IMS.Application.Features.Genres.CreateGenre
+namespace IMS.Application.Features.Authors.CreateAuthor
 {
-    internal class CreateGenreCommand
+    internal class AddAuthorValidator
     {
     }
 }

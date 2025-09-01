@@ -9,26 +9,26 @@ using MediatR;
 
 namespace IMS.Application.Features.Publishers.CreatePublisher
 {
-    public class CreatePublisherHandler : IRequestHandler<CreatePublisherCommand, int>
+    public class AddPublisherHandler : IRequestHandler<AddPublisherCommand, int>
     {
         private readonly IUnitOfWork _uow;
         private readonly IMapper _mapper;
         private readonly IPublishersRepository _repository;
 
-        public CreatePublisherHandler(IUnitOfWork uow,IPublishersRepository publishersRepository,IMapper mapper)
+        public AddPublisherHandler(IUnitOfWork uow,IPublishersRepository publishersRepository,IMapper mapper)
         {
             _uow = uow;
             _repository = publishersRepository;
             _mapper = mapper;
         }
-        public async Task<int> Handle(CreatePublisherCommand request, CancellationToken ct)
+        public async Task<int> Handle(AddPublisherCommand request, CancellationToken ct)
         {
             await _uow.BeginAsync(ct);
             try
             {
-                var publisher = _mapper.Map<Domain.Entities.Publishers>(request.CreatePublisher);
+                var publisher = _mapper.Map<Domain.Entities.Publishers>(request.AddPublisher);
                 
-                var publisherId = await _repository.CreatePublisherAsync(publisher);
+                var publisherId = await _repository.AddPublisherAsync(publisher);
                 await _uow.CommitAsync(ct);
                 return publisherId;
             }

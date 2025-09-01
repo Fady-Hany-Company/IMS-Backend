@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IMS.Application.Features.Books.CreateBook
+namespace IMS.Application.Features.Genres.CreateGenre
 {
-    internal class CreateBookHandler
+    internal class AddGenreHandler
     {
     }
 }

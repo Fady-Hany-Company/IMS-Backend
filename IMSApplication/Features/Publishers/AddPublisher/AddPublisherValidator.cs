@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IMS.Application.Features.Genres.CreateGenre
+namespace IMS.Application.Features.Publishers.CreatePublisher
 {
-    internal class CreateGenreHandler
+    public class AddPublisherValidator
     {
     }
 }

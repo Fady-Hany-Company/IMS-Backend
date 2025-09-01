@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IMS.Application.DTOs.PublishersDTO.CreatePublisher
 {
-    public class CreatePublisherRequestDto
+    public class AddPublisherRequestDto
     {
         public required string Name { get; set; }
     }

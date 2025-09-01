@@ -14,7 +14,7 @@ namespace IMS.Application.Common.Mappings
     {
         public PublisherProfile()
         {
-            CreateMap<CreatePublisherRequestDto, Publishers>().ReverseMap();
+            CreateMap<AddPublisherRequestDto, Publishers>().ReverseMap();
             CreateMap<GetPublishersResponseDto, Publishers>().ReverseMap();
         }
     }

@@ -1,8 +1,9 @@
-﻿using IMS.Application.DTOs.Logging.UpdateLog;
+﻿
 using IMS.Application.Features.Logging.InsertLog;
 using IMS.Application.Features.Logging.UpdateLog;
 using MediatR;
 using IMS_Mono.Common;
+using IMS.Application.DTOs.LoggingDTO.UpdateLog;
 
 namespace IMS_Mono.Middlewares
 {

@@ -14,7 +14,7 @@ namespace IMS.Application.Common.Mappings
     {
         public CategoryProfile()
         {
-            CreateMap<CreateCategoryRequestDto, Categories>()
+            CreateMap<AddCategoryRequestDto, Categories>()
                 .ForMember(dest => dest.CategoryName, opt => opt.MapFrom(src => src.CategoryName))
                 .ForMember(dest => dest.CategoryDesc, opt => opt.MapFrom(src => src.CategoryDesc))
                 .ReverseMap();

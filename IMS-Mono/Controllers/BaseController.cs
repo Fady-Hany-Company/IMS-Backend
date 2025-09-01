@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,18 +11,16 @@ namespace IMS_Mono.Controllers
     {
         protected readonly ILogger<BaseController> _logger;
         private IMediator _mediator;
-        public BaseController(ILogger<BaseController> logger,IMediator mediator)
+        private IMapper _mapper;
+        public BaseController(ILogger<BaseController> logger,IMediator mediator,IMapper mapper)
         {
             _logger = logger;
             _mediator = mediator;
+            _mapper = mapper;
         }
         protected IMediator Mediator => _mediator ??= HttpContext.RequestServices.GetService<IMediator>();
 
-        protected IActionResult HandleException(Exception ex)
-        {
-            _logger.LogError(ex, "An error occurred while processing the request.");
-            return StatusCode(StatusCodes.Status500InternalServerError, "An unexpected error occurred.");
-        }
+        protected IMapper Mapper => _mapper ??= HttpContext.RequestServices.GetService<IMapper>();
 
     }
 }

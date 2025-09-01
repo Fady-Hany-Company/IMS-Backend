@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IMS.Application.DTOs.AuthorsDTO.CreateAuthor
 {
-    public class CreateAuthorRequestDto
+    public class AddAuthorRequestDto
     {
         public required string Name { get; set; }
         public string? Bio { get; set; }

@@ -1,4 +1,5 @@
-﻿using IMS.Application.DTOs.CategoriesDTO.CreateCategory;
+﻿using AutoMapper;
+using IMS.Application.DTOs.CategoriesDTO.CreateCategory;
 using IMS.Application.Features.Categories.CreateCategory;
 using IMS.Application.Features.Categories.GetCategories;
 using MediatR;
@@ -11,7 +12,7 @@ namespace IMS_Mono.Controllers
     [ApiController]
     public class CategoriesController : BaseController
     {
-        public CategoriesController(ILogger<BaseController> logger, IMediator mediator) : base(logger, mediator)
+        public CategoriesController(ILogger<BaseController> logger, IMediator mediator, IMapper mapper) : base(logger, mediator, mapper)
         {
         }
 
@@ -32,12 +33,12 @@ namespace IMS_Mono.Controllers
         }
 
         [HttpPost("")]
-        public async Task<IActionResult> CreateCategory([FromBody] CreateCategoryRequestDto requestDto)
+        public async Task<IActionResult> CreateCategory([FromBody] AddCategoryRequestDto requestDto)
         {
             try
             {
                 _logger.LogInformation($"[Controller] Creating category with name: {requestDto.CategoryName}");
-                var categoryId = await Mediator.Send(new CreateCategoryCommand(requestDto));
+                var categoryId = await Mediator.Send(new AddCategoryCommand(requestDto));
 
                 return Ok(new { CategoryId = categoryId });
             }

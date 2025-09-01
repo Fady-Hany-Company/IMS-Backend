@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IMS.Application.DTOs.GenresDTO.CreateGenre
 {
-    public class CreateGenreRequestDto
+    public class AddGenreRequestDto
     {
         public required string Name { get; set; }
         public string? Description { get; set; }

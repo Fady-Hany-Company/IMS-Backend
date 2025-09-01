@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,9 +9,8 @@ namespace IMS_Mono.Controllers
     [ApiController]
     public class AuthorsController : BaseController
     {
-        public AuthorsController(ILogger<BaseController> logger, IMediator mediator) : base(logger, mediator)
+        public AuthorsController(ILogger<BaseController> logger, IMediator mediator, IMapper mapper) : base(logger, mediator, mapper)
         {
         }
-
     }
 }

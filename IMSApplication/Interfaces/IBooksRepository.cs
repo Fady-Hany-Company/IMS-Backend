@@ -8,5 +8,7 @@ namespace IMS.Application.Interfaces
 {
     public interface IBooksRepository
     {
+        Task<Domain.Entities.Books> GetBookById(int bookId);
+        Task<int> AddBook(Domain.Entities.Books book);
     }
 }

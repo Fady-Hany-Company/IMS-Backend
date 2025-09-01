@@ -1,4 +1,5 @@
-﻿using IMS.Application.DTOs.PublishersDTO.CreatePublisher;
+﻿using AutoMapper;
+using IMS.Application.DTOs.PublishersDTO.CreatePublisher;
 using IMS.Application.Features.Publishers.CreatePublisher;
 using IMS.Application.Features.Publishers.GetPublishers;
 using MediatR;
@@ -11,7 +12,7 @@ namespace IMS_Mono.Controllers
     [ApiController]
     public class PublishersController : BaseController
     {
-        public PublishersController(ILogger<BaseController> logger, IMediator mediator) : base(logger, mediator)
+        public PublishersController(ILogger<BaseController> logger, IMediator mediator, IMapper mapper) : base(logger, mediator, mapper)
         {
         }
         
@@ -32,12 +33,12 @@ namespace IMS_Mono.Controllers
         }
 
         [HttpPost("")]
-        public async Task<IActionResult> InsertPublisher([FromBody] CreatePublisherRequestDto requestDto)
+        public async Task<IActionResult> InsertPublisher([FromBody] AddPublisherRequestDto requestDto)
         {
             try
             {
                 _logger.LogInformation($"[Controller] Creating publisher with name: {requestDto.Name}");
-                var publisherId = await Mediator.Send(new CreatePublisherCommand(requestDto));
+                var publisherId = await Mediator.Send(new AddPublisherCommand(requestDto));
 
                 return Ok(new { PublisherId = publisherId });
             }

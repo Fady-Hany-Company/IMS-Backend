@@ -18,7 +18,7 @@ namespace IMS.Infrastructure.Repositories
         {
         }
 
-        public async Task<int> CreatePublisherAsync(Publishers publishers)
+        public async Task<int> AddPublisherAsync(Publishers publishers)
         {
             Logger.LogInformation("[Repo] Creating new publisher {publisherName}", publishers.Name);
 
