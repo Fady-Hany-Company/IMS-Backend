@@ -1,10 +1,9 @@
-﻿namespace IMS.Application.Features.Authors.CreateAuthor
+﻿using IMS.Application.DTOs.AuthorsDTO.CreateAuthor;
+
+namespace IMS.Application.Features.Authors.CreateAuthor
 {
     using MediatR;
 
-    public record AddAuthorCommand(
-        string Name,
-        string? Bio
-        ) : IRequest<int>;
+    public record AddAuthorCommand(AddAuthorRequestDto RequestDto) : IRequest<int>;
 
 }

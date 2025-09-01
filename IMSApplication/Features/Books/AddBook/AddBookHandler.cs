@@ -22,9 +22,9 @@ namespace IMS.Application.Features.Books.CreateBook
             _repository = repository;
         }
 
-        public async Task<int> Handle(AddBookCommand request, CancellationToken cancellationToken)
+        public async Task<int> Handle(AddBookCommand request, CancellationToken ct)
         {
-            await _uow.BeginAsync(cancellationToken);
+            await _uow.BeginAsync(ct);
             try
             {
                 var book = _mapper.Map<Domain.Entities.Books>(request.BookRequestDto);
@@ -32,11 +32,12 @@ namespace IMS.Application.Features.Books.CreateBook
                 book.CreatedUsername = "Fady Hany";
                 
                 var bookId = await _repository.AddBook(book);
-                await _uow.CommitAsync(cancellationToken);
+                await _uow.CommitAsync(ct);
                 return bookId;
             }
             catch (Exception e)
             {
+                await _uow.RollbackAsync(ct);
                 throw;
             }
         }
