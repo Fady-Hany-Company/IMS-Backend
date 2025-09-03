@@ -28,6 +28,14 @@ builder.Services.AddOpenApi(options =>
     });
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngular",
+        builder => builder.WithOrigins("http://localhost:4200") // Replace with your front-end port
+            .AllowAnyHeader()
+            .AllowAnyMethod());
+});
+
 builder.Services.AddProjectServices(builder.Configuration);
 
 var app = builder.Build();
@@ -40,6 +48,8 @@ if (app.Environment.IsDevelopment())
     app.MapGet("/", () => Results.Redirect("/scalar/v1"))
         .ExcludeFromDescription();
 }
+
+app.UseCors("AllowAngular");
 
 app.UseMiddleware<ResponseWrapperMiddleware>();
 app.UseMiddleware<RequestLoggingMiddleware>();
