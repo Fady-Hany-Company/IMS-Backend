@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using IMS.Application.DTOs.CategoriesDTO.CreateCategory;
+using IMS.Application.DTOs.CategoriesDTO.GetCategories;
 using IMS.Application.Features.Categories.CreateCategory;
 using IMS.Application.Features.Categories.GetCategories;
+using IMS.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -23,7 +25,7 @@ namespace IMS_Mono.Controllers
             {
                 _logger.LogInformation($"[Controller] Get Categories");
                 var categories = await Mediator.Send(new GetCategoriesQuery());
-
+                
                 return Ok(categories);
             }
             catch (Exception ex)

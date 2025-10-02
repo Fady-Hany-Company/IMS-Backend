@@ -11,6 +11,6 @@ namespace IMS.Application.DTOs.CategoriesDTO.GetCategories
         public required int CategoryId { get; set; }
         public required string CategoryName { get; set; }
         public string? CategoryDesc { get; set; }
-        public required DateTime CreatedAt { get; set; }
+        public required string CreatedAt { get; set; }
     }
 }
